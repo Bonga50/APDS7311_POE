@@ -89,13 +89,7 @@ npm start
   "error": "Error comparing passwords"
 }
 ```
-  * Status Code: `403 Invalid token`
-  * Body:
-```
-{
-  "message": "Invalid token"
-}
-```
+
 
 ### Create a New Post
 * URL: `https://localhost:3000/api/posts`
@@ -112,7 +106,6 @@ npm start
   * Status code `201 created`
   * Body:
 ```
-
 {
   "Message": "Post created",
   "Posts": {
@@ -122,6 +115,14 @@ npm start
   }
 }
 ```
+  * Status Code: `403 Invalid token`
+  * Body:
+```
+{
+  "message": "Invalid token"
+}
+```
+
 ### Get all created posts
 * URL: `https://localhost:3000/api/posts`
 * Method: `GET`
