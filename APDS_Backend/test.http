@@ -1,0 +1,39 @@
+
+###
+POST https://localhost:3000/api/posts HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyNCIsInVzZXJpZCI6IjY1MTg3NDZjNGM3M2UwMjE1MDFhOTBkMCIsImlhdCI6MTY5NjE1MDY4NSwiZXhwIjoxNjk2MTU3ODg1fQ.YuyGnFXkrVOMuk1UME9u_6mn9fZ9kpqUXtgSkP_lejc
+
+{
+    "postName": "NewPosting",
+    "postDescription": "This is a description for my test post."
+}
+
+###
+GET https://localhost:3000/api/posts HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyNCIsInVzZXJpZCI6IjY1MTg3NDZjNGM3M2UwMjE1MDFhOTBkMCIsImlhdCI6MTY5NjE1MDY4NSwiZXhwIjoxNjk2MTU3ODg1fQ.YuyGnFXkrVOMuk1UME9u_6mn9fZ9kpqUXtgSkP_lejc
+
+###
+DELETE https://localhost:3000/api/posts/My First Post HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyNCIsInVzZXJpZCI6IjY1MTg3NDZjNGM3M2UwMjE1MDFhOTBkMCIsImlhdCI6MTY5NjE1MDY4NSwiZXhwIjoxNjk2MTU3ODg1fQ.YuyGnFXkrVOMuk1UME9u_6mn9fZ9kpqUXtgSkP_lejc
+
+###
+GET https://localhost:3000/api/posts HTTP/1.1
+//Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyNCIsInVzZXJpZCI6IjY1MTg3NDZjNGM3M2UwMjE1MDFhOTBkMCIsImlhdCI6MTY5NjEwMjQ1NiwiZXhwIjoxNjk2MTA5NjU2fQ.QtUZS1zY8rB6QLPyHJ3ajTkTmGgy1PLcG6Q7HoYCtY0
+
+###
+POST https://localhost:3000/api/users/signup HTTP/1.1
+content-type: application/json
+
+{
+    "username": "example_user",
+    "password": "testPassword123"
+}
+###
+POST  https://localhost:3000/api/users/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "example_user",
+    "password": "testPassword123"
+}
