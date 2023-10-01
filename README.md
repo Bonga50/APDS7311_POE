@@ -5,7 +5,7 @@ This repository contains an Express.js API for managing posts. It includes the f
 - [Create a New Post](#create-a-new-post)
 - [Get All Posts](#get-all-posts)
 - [Delete a Post](#delete-a-post)
--  [User Signup](#user-signup)
+- [User Signup](#user-signup)
 - [User Login](#user-login)
 
 ## Prerequisites
@@ -70,7 +70,8 @@ npm start
     * Body:
 ```
 {
-  "message": "Authenticated successfully"
+  "message": "Authenticated successfully",
+ "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImV4YW1wbGVfdXNlciIsInVzZXJpZCI6IjY1MTkzOWJmYTMyNDViYTFjMDc3Zjc4ZCIsImlhdCI6MTY5NjE1MjYzNCwiZXhwIjoxNjk2MTU5ODM0fQ.3AC4ctvPZKCfXme9aohQFdLXNRXX_4CoohBfKwHelSc"
 }
 ```
  * Status Code: `404 Not found`
@@ -87,10 +88,18 @@ npm start
   "error": "Error comparing passwords"
 }
 ```
+  * Status Code: `403 Invalid token`
+  * Body:
+```
+{
+  "message": "Invalid token"
+}
+```
 
 ### Create a New Post
 * URL: `https://localhost:3000/api/posts`
 * Method: `POST`
+* Autorization: Bearer {token}
 * Request Body:
 ```
 {
@@ -115,6 +124,7 @@ npm start
 ### Get all created posts
 * URL: `https://localhost:3000/api/posts`
 * Method: `GET`
+* * Autorization: Bearer {token}
 * Request Body:
   * Status Code: `200 OK`
   * Body:
@@ -133,14 +143,29 @@ npm start
   ]
 }
 ```
+  * Status Code: `403 Invalid token`
+  * Body:
+```
+{
+  "message": "Invalid token"
+}
+```
 ### Delete a Post
 * URL: `https://localhost:3000/api/posts/{PostName}`
 * Method: `DELETE`
+* * Autorization: Bearer {token}
 * Response:
   * Status Code: `200 OK`
   * Body:
 ```
 {
   "message": "Post deleted"
+}
+```
+  * Status Code: `403 Invalid token`
+  * Body:
+```
+{
+  "message": "Invalid token"
 }
 ```
