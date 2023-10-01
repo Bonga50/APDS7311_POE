@@ -74,8 +74,8 @@ npm start
  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImV4YW1wbGVfdXNlciIsInVzZXJpZCI6IjY1MTkzOWJmYTMyNDViYTFjMDc3Zjc4ZCIsImlhdCI6MTY5NjE1MjYzNCwiZXhwIjoxNjk2MTU5ODM0fQ.3AC4ctvPZKCfXme9aohQFdLXNRXX_4CoohBfKwHelSc"
 }
 ```
- * Status Code: `404 Not found`
-    * Body:
+  * Status Code: `404 Not found`
+  * Body:
 ```
 {
   "message": "Authentication Failed"
