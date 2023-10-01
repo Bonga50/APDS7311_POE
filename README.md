@@ -127,7 +127,7 @@ npm start
 * URL: `https://localhost:3000/api/posts`
 * Method: `GET`
 * * Autorization: Bearer {token}
-* Request Body:
+* Response Body:
   * Status Code: `200 OK`
   * Body:
 ```
