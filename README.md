@@ -5,6 +5,8 @@ This repository contains an Express.js API for managing posts. It includes the f
 - [Create a New Post](#create-a-new-post)
 - [Get All Posts](#get-all-posts)
 - [Delete a Post](#delete-a-post)
+-  [User Signup](#user-signup)
+- [User Login](#user-login)
 
 ## Prerequisites
 
@@ -29,6 +31,63 @@ npm install
 npm start
 ```
 ## API Endpoints
+### User Signup
+* URL: `https://localhost:3000/api/users/signup`
+* Method: `POST`
+* Request Body:
+```
+{
+  "username": "example_user",
+  "password": "password123"
+}
+```
+* Response
+    * Status Code: `200 OK`
+    * Body:
+```
+{
+  "Message": "User saved successfully",
+  "user": {
+    "username": "example_user",
+    "password": "$2b$10$ExfGePH/66Ntx2ke.u.w9eD4LACaF10zId9i/z7i3LxecnUgg49Ui",
+    "_id": "651939bfa3245ba1c077f78d",
+    "__v": 0
+  }
+}
+```
+### User Login
+* URL: `https://localhost:3000/api/users/login `
+* Method: `POST`
+* Request Body:
+```
+{
+  "username": "example_user",
+  "password": "password123"
+}
+```
+* Response
+    * Status Code: `200 OK`
+    * Body:
+```
+{
+  "message": "Authenticated successfully"
+}
+```
+ * Status Code: `404 Not found`
+    * Body:
+```
+{
+  "message": "Authentication Failed"
+}
+```
+* Status Code: `500 Internal server error`
+    * Body:
+```
+{
+  "error": "Error comparing passwords"
+}
+```
+
 ### Create a New Post
 * URL: `https://localhost:3000/api/posts`
 * Method: `POST`
@@ -40,7 +99,7 @@ npm start
 }
 ```
 * Response
-  * Status code 201 created 
+  * Status code `201 created`
   * Body:
 ```
 
@@ -57,7 +116,7 @@ npm start
 * URL: `https://localhost:3000/api/posts`
 * Method: `GET`
 * Request Body:
-  * Status Code: 200 OK
+  * Status Code: `200 OK`
   * Body:
 ```
 {
@@ -78,7 +137,7 @@ npm start
 * URL: `https://localhost:3000/api/posts/{PostName}`
 * Method: `DELETE`
 * Response:
-  * Status Code: 200 OK
+  * Status Code: `200 OK`
   * Body:
 ```
 {
