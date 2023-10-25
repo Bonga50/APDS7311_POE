@@ -31,13 +31,11 @@ export class UserserviceService {
     password:string}){
       this.http.post<{token:string}>(this.apiUrl+'/login',loginUser).subscribe(response => {
         const token = response.token;
-        console.log(token);
         this.token = token;
       })
   }
 
   getToken(){
-    console.log(this.token);
     return this.token
   }
 }
