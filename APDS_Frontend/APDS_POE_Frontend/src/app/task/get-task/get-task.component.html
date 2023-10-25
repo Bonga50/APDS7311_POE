@@ -12,7 +12,7 @@
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ post.postName }}</td>
       <td>{{ post.postDescription }}</td>
-      <td><button class="btn btn-danger" (click)="onDelete(post)">Delete</button></td>
+      <td><button class="btn btn-danger" (click)="onDelete(post._id)">Delete</button></td>
     </tr>
   </tbody>
 </table>

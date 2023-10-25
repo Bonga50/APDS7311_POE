@@ -20,20 +20,21 @@ export class GetTaskComponent implements OnInit {
    *
    */
   constructor(private taskservice: TaskService) {}
-
+  posts:Post[] = [];
   ngOnInit(): void {
     this.taskservice.getPost_service()
     this.postSubscription = this.taskservice.getUpdateListiner().subscribe(
       (data:{_id:string,postName: string,postDescription:string,__v:string}[]) => {
       this.posts = data;
+      console.log(this.posts);
     })
   }
 
-  posts:Post[] = [];
+
   ngOnDestroy() {
     this.postSubscription.unsubscribe();
   }
-  onDelete(post: any): void {
-    // call your service method to delete the post
+  onDelete(postId: string): void {
+    this.taskservice.deletePost_service(postId);
   }
 }

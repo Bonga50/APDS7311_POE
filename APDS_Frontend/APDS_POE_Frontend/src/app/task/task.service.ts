@@ -27,9 +27,9 @@ export class TaskService {
   }
 
   getPost_service(){
-    this.http.get<{message: string, posts:any}>(this.apiUrl+'/posts').subscribe(response => {
+    this.http.get<{message: string, Posts:any}>(this.apiUrl+'/posts').subscribe(response => {
       console.log(response);
-      this.postget = response.posts;
+      this.postget = response.Posts;
       this.updatedPostdisplay.next([...this.postget])
     });
   }
