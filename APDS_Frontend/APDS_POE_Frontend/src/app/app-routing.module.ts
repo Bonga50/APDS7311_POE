@@ -6,9 +6,9 @@ import { LoginUserComponent } from './user/login-user/login-user.component';
 import { CreateTaskComponent } from './task/create-task/create-task.component';
 
 const routes: Routes = [
-  {path: '', component:GetTaskComponent},
+  {path: '', component:LoginUserComponent},
   {path: 'task', component:CreateTaskComponent},
-  {path: 'user', component:LoginUserComponent},
+  {path: 'getTask', component:GetTaskComponent},
   {path: 'signup', component:CreateUserComponent}
 ];
 

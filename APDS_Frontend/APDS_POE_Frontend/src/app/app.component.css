@@ -1,0 +1,16 @@
+/* styles.css */
+nav {
+    background-color: #0074D9;
+    padding: 10px;
+  }
+  
+  nav a {
+    margin-right: 10px;
+    color: #FFFFFF; /* Text color (white) */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  nav a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  

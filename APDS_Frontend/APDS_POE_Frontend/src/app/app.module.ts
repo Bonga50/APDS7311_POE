@@ -11,6 +11,10 @@ import { LoginUserComponent } from './user/login-user/login-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticateInterceptor } from './user/authenticate.interceptor';
+import { ErrComponent } from './error/err/err.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorhandlerInterceptor } from './error/errorhandler.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,15 +23,21 @@ import { AuthenticateInterceptor } from './user/authenticate.interceptor';
     CreateTaskComponent,
     DeleteTaskComponent,
     CreateUserComponent,
-    LoginUserComponent
+    LoginUserComponent,
+    ErrComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
-  providers: [{provide: HTTP_INTERCEPTORS,useClass:AuthenticateInterceptor,multi:true}],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:AuthenticateInterceptor,multi:true},
+    {provide: HTTP_INTERCEPTORS,useClass:ErrorhandlerInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,28 +1,28 @@
 <form #signupForm="ngForm" (ngSubmit)="onSignup(signupForm)">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required pattern="[a-zA-Z ]*" [(ngModel)]="user.name" name="name">
+    <input type="text" class="form-control custom-input" id="name" required pattern="[a-zA-Z ]*" [(ngModel)]="user.name" name="name">
   </div>
 
   <div class="form-group">
     <label for="surname">Surname</label>
-    <input type="text" class="form-control" id="surname" required pattern="[a-zA-Z ]*" [(ngModel)]="user.surname" name="surname">
+    <input type="text" class="form-control custom-input" id="surname" required pattern="[a-zA-Z ]*" [(ngModel)]="user.surname" name="surname">
   </div>
 
   <div class="form-group">
     <label for="emailAddress">Email Address</label>
-    <input type="email" class="form-control" id="emailAddress" required [(ngModel)]="user.emailAddress" name="emailAddress">
+    <input type="email" class="form-control custom-input" id="emailAddress" required [(ngModel)]="user.emailAddress" name="emailAddress">
   </div>
 
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" required pattern="[a-zA-Z0-9]*" [(ngModel)]="user.username" name="username">
+    <input type="text" class="form-control custom-input" id="username" required pattern="[a-zA-Z0-9]*" [(ngModel)]="user.username" name="username">
   </div>
 
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    <input type="password" class="form-control custom-input" id="password" required [(ngModel)]="user.password" name="password">
   </div>
 
-  <button type="submit" class="btn btn-primary">Sign Up</button>
+  <button type="submit" class="btn btn-primary custom-button">Sign Up</button>
 </form>

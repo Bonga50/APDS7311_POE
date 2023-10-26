@@ -1,7 +1,7 @@
 <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)">
   <div class="form-group">
     <label for="postName">Post Name</label>
-    <input type="text" class="form-control" id="postName" required minlength="3" pattern="[a-zA-Z0-9 ]*" [(ngModel)]="post.postName" name="postName" #postName="ngModel">
+    <input type="text" class="form-control custom-input" id="postName" required minlength="3" pattern="[a-zA-Z0-9 ]*" [(ngModel)]="post.postName" name="postName" #postName="ngModel">
     <div *ngIf="postName.invalid && (postName.dirty || postName.touched)" class="alert alert-danger">
       <div *ngIf="postName.errors && postName.errors['required']">
         Post Name is required.
@@ -17,7 +17,7 @@
 
   <div class="form-group">
     <label for="postDescription">Post Description</label>
-    <input type="text" class="form-control" id="postDescription" required minlength="3" [(ngModel)]="post.postDescription" name="postDescription" #postDescription="ngModel">
+    <input type="text" class="form-control custom-input" id="postDescription" required minlength="3" [(ngModel)]="post.postDescription" name="postDescription" #postDescription="ngModel">
     <div *ngIf="postDescription.invalid && (postDescription.dirty || postDescription.touched)" class="alert alert-danger">
       <div *ngIf="postDescription.errors && postDescription.errors['required']">
         Post Description is required.
@@ -28,5 +28,5 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!postForm.form.valid">Submit</button>
+  <button type="submit" class="btn btn-success custom-button" [disabled]="!postForm.form.valid">Submit</button>
 </form>
