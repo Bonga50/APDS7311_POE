@@ -12,7 +12,6 @@ const options = {
 };
 
 
-
 const connstring='mongodb+srv://Admin:LV0mHpYmKtHTajGR@cluster0.fw6znqm.mongodb.net/?retryWrites=true&w=majority'
 const postRoutes = require("./routes/posts");
 const userRoutes = require("./routes/user");
