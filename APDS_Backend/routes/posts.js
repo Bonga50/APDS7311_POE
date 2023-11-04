@@ -12,7 +12,11 @@ router.post('',Authentication, (req, res) => {
             postDescription: req.body.postDescription
         });
 
-        newPost.save();
+        const savedPost = newPost.save();
+
+        if (!savedPost) {
+            return res.status(400).json({ error: 'No post was created' });
+        }
 
         res.status(201).json({
             Message:'Post created',
@@ -25,26 +29,38 @@ router.post('',Authentication, (req, res) => {
 });
 
 //Get all posts
-router.get('',Authentication, (req, res) => {
-    Posts.find().then((post) => {
+router.get('', Authentication, (req, res) => {
+   
+    Posts.find().then((posts) => {
+        if (!posts || posts.length === 0) {
+            return res.status(404).json({ Message: 'No posts found' });
+        }
+
         res.json({
             Message: 'Posts Found',
-            Posts: post
+            Posts: posts
         });
-    })
+    }).catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    });
 });
 
 //Delete posts
-router.delete('/:postName',Authentication, (req, res) => {
+router.delete('/:_id', Authentication, (req, res) => {
     try {
-         Posts.deleteOne({postName: req.params.postName}).then(
-        (result) => {res.status(200).json({message:'Post deleted'})}
-    );
-    }catch(error) {
+        Posts.deleteOne({_id: req.params._id}).then((result) => {
+            if (result.n === 0) {
+                return res.status(404).json({message: 'No post found to delete'});
+            }
+
+            res.status(200).json({message: 'Post deleted'});
+        });
+    } catch(error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
-   
 });
+
 
 module.exports = router
