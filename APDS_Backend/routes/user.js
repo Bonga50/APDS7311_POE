@@ -3,9 +3,15 @@ const router = express.Router();
 const Users = require('../models/users')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const ExpressBrute = require('express-brute');
+
+// Create a new instance of ExpressBrute to handle brute force protection
+let store = new ExpressBrute.MemoryStore(); // stores state locally, don't use this in production
+let bruteforce = new ExpressBrute(store);
+
 
 //sign up
-router.post('/signup', (req, res) => {
+router.post('/signup', bruteforce.prevent, (req, res) => {
     bcrypt.hash(req.body.password,10).
     then( hash=>{
         const user = new Users({
@@ -37,7 +43,7 @@ router.post('/signup', (req, res) => {
 
 })
 //Login
-router.post('/login', (req, res) => {
+router.post('/login', bruteforce.prevent, (req, res) => {
     const { username, password } = req.body;
     Users.findOne({ username: username })
       .then(user => {

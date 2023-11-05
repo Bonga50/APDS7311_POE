@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Posts = require('../models/posts')
 const Authentication = require('../authentication');
+const ExpressBrute = require('express-brute');
 
 
 //create a new post

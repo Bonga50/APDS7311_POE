@@ -4,10 +4,13 @@ const urlprefix = '/api';
 const Posts = require('./models/posts');
 const fs = require('fs')
 const mongoose = require('mongoose');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const cert = fs.readFileSync('./Keys/certificate.pem');
 const options = {
     server: {sslCA: cert}
 };
+
 
 const connstring='mongodb+srv://Admin:LV0mHpYmKtHTajGR@cluster0.fw6znqm.mongodb.net/?retryWrites=true&w=majority'
 const postRoutes = require("./routes/posts");
@@ -29,6 +32,11 @@ app.use((reg,res,next)=>
  res.setHeader('Access-Control-Allow-Methods', '*');
  next();
 });
+
+// Use Helmet for setting HTTP headers for security
+app.use(helmet());
+// Use Morgan for logging HTTP requests
+app.use(morgan('tiny'));
 
 app.use(urlprefix+'/posts', postRoutes);
 app.use(urlprefix+'/users', userRoutes);
