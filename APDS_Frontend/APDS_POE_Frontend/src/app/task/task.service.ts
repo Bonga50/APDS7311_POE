@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class TaskService {
   private postget: {_id:string,postName: string,postDescription:string,__v:string}[] = [];
   private updatedPostdisplay = new Subject<{_id:string,postName: string,postDescription:string,__v:string}[] >();
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient,private router: Router) {
     this.http = http;
   }
 
@@ -21,6 +22,7 @@ export class TaskService {
     console.log(post);
      this.http.post(this.apiUrl+'/posts', post).subscribe(response => {
       console.log(response);
+      this.router.navigate(['/getTask']);
       return response;
      });
      return "null" as unknown as Observable<any>;

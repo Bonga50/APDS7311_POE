@@ -21,18 +21,33 @@ Before using this API, ensure you have the following dependencies installed:
 ```
 git clone https://github.com/Bonga50/APDS7311_POE.git
 ```
-2. Install the required packages:
+2. Install the required packages: 
+Backend
 ```
 npm install
 ```
-3. Set up a MongoDB database and configure the connection in config.js.
-4. Start the server:
+Frontedn
 ```
-npm start
+npm install -g @angular/cli
+
+npm install
+```
+3. Set up a MongoDB database and configure the connection in config.js.
+
+4. Start the server:
+runs on port 3000
+```
+npm run dev
+```
+5. Start frontend 
+runs on port 4200
+```
+ng serve --open
 ```
 ## API Endpoints
 ### User Signup
 * URL: `https://localhost:3000/api/users/signup`
+* Frontend: `http://localhost:4200/signup`
 * Method: `POST`
 * Request Body:
 ```
@@ -58,6 +73,7 @@ npm start
 
 ### User Login
 * URL: `https://localhost:3000/api/users/login `
+* Frontend: `http://localhost:4200/`
 * Method: `POST`
 * Request Body:
 ```
@@ -93,6 +109,7 @@ npm start
 
 ### Create a New Post
 * URL: `https://localhost:3000/api/posts`
+* Frontend: `http://localhost:4200/task`
 * Method: `POST`
 * Autorization: Bearer {token}
 * Request Body:
@@ -125,6 +142,7 @@ npm start
 
 ### Get all created posts
 * URL: `https://localhost:3000/api/posts`
+* Frontend: `http://localhost:4200/getTask`
 * Method: `GET`
 * * Autorization: Bearer {token}
 * Response Body:

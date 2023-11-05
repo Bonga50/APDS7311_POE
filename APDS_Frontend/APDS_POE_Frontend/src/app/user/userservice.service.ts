@@ -25,6 +25,7 @@ export class UserserviceService {
     this.http.post(this.apiUrl+'/signup',user).subscribe( response => {
       console.log(response);
     })
+    this.router.navigate(['/']);
   }
 
   login_service(loginUser:{

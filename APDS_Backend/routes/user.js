@@ -7,7 +7,11 @@ const ExpressBrute = require('express-brute');
 
 // Create a new instance of ExpressBrute to handle brute force protection
 let store = new ExpressBrute.MemoryStore(); // stores state locally, don't use this in production
-let bruteforce = new ExpressBrute(store);
+let bruteforce = new ExpressBrute(store, {
+  freeRetries: 5, // The number of retries allowed in the given time window
+  minWait: 5*60*1000, // The initial wait time after the user runs out of retries (5 minutes)
+  maxWait: 60*60*1000, // The maximum amount of time between requests the user needs to wait (1 hour)
+});
 
 
 //sign up
